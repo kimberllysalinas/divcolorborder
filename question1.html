@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--Kimberlly Salinas-->
+<!--2022 February 1-->
+<html>
+<head>
+    <title> HW #3, Question 1 </title>
+<style>
+
+div#description {
+    padding: 5px;
+    
+  }
+button {
+    box-sizing: content-box;
+    width: 100%;
+    height: 25px; 
+  }
+div.color-inputs { 
+    display:inline-block;
+    padding: 5px;
+    width: 20%; 
+    height: 25px; 
+    
+  }
+input {
+    width: 100%; 
+    height: 25px; 
+  } 
+</style> 
+</head>
+<body>
+  
+  <h1 id = "title"> Homework #3, Question 1 </h1>
+
+  <div id = "description">
+     
+    <p>Use JavaScript to change the background color and text color of this div when 
+     a user types a color in the corresponding textbox. In order to do this, you
+     should respond to the <i>onkeyup</i> event for each textbox. </p> 
+    
+     <p>Additionally, allow the user to add a border by clicking the button. You can
+     use a style of your choice, such as "2px solid red", as long as the border is visible</p>
+   
+     <p> Finally, clicking the "Reset" button should reset the styles and inputs to their default values, 
+     which are "white" for the background color and "black" for the font color, with the border style 
+       set to "none". </p>
+  </div>
+  
+  <br>
+  <hr>
+
+<div class = "color-inputs">
+<label for = "bgcolor">background-color: </label>
+<input type = "text" name= "bgcolor" id= "bgcolor" value = "white" onkeyup = "backgroundColor()">
+</div>
+    
+<script>
+"use strict"
+//change background color to what user inputs
+    function backgroundColor() { 
+        let color = document.getElementById("bgcolor").value;
+        let uinput = document.getElementById("description");
+        uinput.style.background = color;
+    }
+</script>
+    
+<div class = "color-inputs">
+<label for = "textcolor">font color: </label>
+<input type = "text" value = "black" name="textcolor" id="textcolor" onkeyup = "textColor()"/>
+</div>
+    
+<script>
+"use strict"
+//change text color to what user inputs 
+    function textColor() {
+        let color = document.getElementById("textcolor").value; 
+        let description = document.getElementById("description");
+        description.style.color = color; 
+    }
+</script>
+<div class = "color-inputs">
+  <button type= "button" onclick = "addBorder()">Add border </button>
+</div>
+<script>
+"use strict"
+//allows user to add border by clicking 'add border' button
+    function addBorder() {
+      document.getElementById("description").style.border = "2px solid green"
+  }
+</script>
+<div class = "color-inputs">
+  <button type = "reset" onclick = "reset()">Reset </button>
+</div>
+<script> 
+//allows user to reset settings by clicking 'reset' button
+    function reset() { 
+        document.getElementById("description").style.border = "";
+        document.getElementById("description").style.color = "black";
+        document.getElementById("textcolor").value = "black";
+        description.style.background = "white";
+        document.getElementById("bgcolor").value = "white";
+    }
+</script> 
+<br><br>
+</body>
+</html>
+
+
+
